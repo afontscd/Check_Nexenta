@@ -158,9 +158,6 @@ class NexentaApi:
 
         self.base64_string = base64.encodestring('%s:%s' % (username, password))[:-1]
         self.url = '%s://%s:%s/rest/nms/' % (protocol, nexenta['ip'], porta)
-# Fix by CDmon
-#        self.url = '%s://%s:%s/rest/nms/ <%s://%s:%s/rest/nms/>' % (protocol, nexenta['ip'], port, protocol, 
-#                                                                   nexenta['ip'], port)
 
     # Build the request and return the response.
     def get_data(self, obj, meth, par):
