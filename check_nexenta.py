@@ -38,6 +38,7 @@
 # 2014/07/02 v1.0.12 Brenn Oosterbaan - bugfix in ReadConfig
 # 2014/07/02 v1.0.13 Brenn Oosterbaan - added nms retry value
 # 2016/07/11 v2.0.0  helge000 - added support for 4.0 and insecure SSL
+# 2017/06/22 v2.0.1  cdmon - Fix support for new Nexenta version [4.0.5-FP1]
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 # Schuberg Philis 2012
@@ -156,8 +157,10 @@ class NexentaApi:
             port = 2000
 
         self.base64_string = base64.encodestring('%s:%s' % (username, password))[:-1]
-        self.url = '%s://%s:%s/rest/nms/ <%s://%s:%s/rest/nms/>' % (protocol, nexenta['ip'], port, protocol, 
-                                                                    nexenta['ip'], port)
+        self.url = '%s://%s:%s/rest/nms/' % (protocol, nexenta['ip'], porta)
+# Fix by CDmon
+#        self.url = '%s://%s:%s/rest/nms/ <%s://%s:%s/rest/nms/>' % (protocol, nexenta['ip'], port, protocol, 
+#                                                                   nexenta['ip'], port)
 
     # Build the request and return the response.
     def get_data(self, obj, meth, par):
