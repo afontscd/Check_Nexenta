@@ -157,7 +157,7 @@ class NexentaApi:
             port = 2000
 
         self.base64_string = base64.encodestring('%s:%s' % (username, password))[:-1]
-        self.url = '%s://%s:%s/rest/nms/' % (protocol, nexenta['ip'], porta)
+        self.url = '%s://%s:%s/rest/nms/' % (protocol, nexenta['ip'], port)
 
     # Build the request and return the response.
     def get_data(self, obj, meth, par):
